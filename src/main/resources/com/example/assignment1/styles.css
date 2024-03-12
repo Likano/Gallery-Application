@@ -1,17 +1,18 @@
 .root {
-    -fx-background-color:Red;
-    -fx-hgap: 10;
-    -fx-vgap: 10;
+    -fx-background-color:#eeeeee;
+    -fx-hgap: 20;
+    -fx-vgap: 40;
     -fx-margin-left: 20;
     -fx-cursor: hand;
 }
 .image-view {
      -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 10, 0, 0, 0);
-     -fx-transition-duration: 0.3s;
+     -fx-transition-duration: 0.5s;
+     -fx-margin: 20px;
 }
 
 .image-view:hover {
-         -fx-effect: dropshadow(three-pass-box, #4CAF50, 10, 0, 0, 0);
+         -fx-effect: dropshadow(three-pass-box, #eeff41, 10, 0, 0, 0);
 }
 
 

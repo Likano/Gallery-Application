@@ -1,11 +1,14 @@
 package com.example.assignment1;
 
 import javafx.application.Application;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.io.FileInputStream;
@@ -55,12 +58,16 @@ public class HelloApplication extends Application {
             imageview[i].setFitWidth(160);
             imageview[i].setFitHeight(160);
             imageview[i].setPreserveRatio(true);
+
+            // to make image view respond to mouseclick
+            imageview[i].setPickOnBounds(true);
+
+
+
         }
         // Gridpane properties rows and columns
         root.addRow(0,imageview[0],imageview[1],imageview[2]);
         root.addRow(1,imageview[3],imageview[4],imageview[5]);
-
-        // set
 
         Scene scene = new Scene(root, 550,400);
 
@@ -69,6 +76,28 @@ public class HelloApplication extends Application {
         stage.setTitle("Gallery Application");
         stage.setScene(scene);
         stage.show();
+    }
+
+    // creating a image view for full screen view
+    private ImageView forFullScreen(String urls){
+        Image img = new Image(getClass().getResourceAsStream(urls));
+        ImageView imageViews = new ImageView(img);
+        imageViews.setFitHeight(550);
+        imageViews.setFitWidth(400);
+        return imageViews;
+    }
+
+    // stage for fullscreen
+    private void  fullSize(String url){
+        Stage fullSize = new Stage();
+        Image pic = new Image(getClass().getResourceAsStream(url));
+        ImageView View = new ImageView(pic);
+
+        Pane pane = new Pane(View);
+        Scene scene = new Scene(pane);
+        fullSize.setScene(scene);
+        fullSize.setTitle("Full Screen");
+        fullSize.show();
     }
 
     public static void main(String[] args) {
