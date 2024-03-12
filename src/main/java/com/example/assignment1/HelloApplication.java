@@ -35,12 +35,20 @@ public class HelloApplication extends Application {
             urls[i] = new FileInputStream(paths[i]);
         }
 
+        // images
+        Image[] image = new Image[6];
+        for (int i=0; i<urls.length; i++){
+            // assigning urls to an image
+            image[i] = new Image(urls[i]);
+
+        }
+
         // imageview array
         ImageView[] imageview = new ImageView[6];
         // assigning image paths
         for (int i=0; i<paths.length; i++)
         {
-            imageview[i] = new ImageView(paths[i]);
+            imageview[i] = new ImageView(image[i]);
             // properties of imageview
             imageview[i].setFitWidth(160);
             imageview[i].setFitHeight(160);
@@ -49,9 +57,6 @@ public class HelloApplication extends Application {
 
         // Gridpane properties
         root.addRow(0,imageview[0],imageview[1],imageview[2]);
-
-
-
 
         Scene scene = new Scene(root);
         stage.setTitle("Gallery Application");
