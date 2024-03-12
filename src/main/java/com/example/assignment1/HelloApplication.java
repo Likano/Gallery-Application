@@ -17,8 +17,6 @@ public class HelloApplication extends Application {
     public void start(Stage stage) throws IOException {
         // grid of thumbnails
         GridPane root = new GridPane();
-        root.setHgap(6);
-        root.setVgap(11);
 
         // An array of paths
         String[] paths = {
@@ -58,12 +56,13 @@ public class HelloApplication extends Application {
             imageview[i].setFitHeight(160);
             imageview[i].setPreserveRatio(true);
         }
-
         // Gridpane properties rows and columns
         root.addRow(0,imageview[0],imageview[1],imageview[2]);
         root.addRow(1,imageview[3],imageview[4],imageview[5]);
 
-        Scene scene = new Scene(root, 650,400);
+        // set
+
+        Scene scene = new Scene(root, 550,400);
 
         // linking stylesheet
         scene.getStylesheets().add(getClass().getResource("styles.css").toExternalForm());
