@@ -1,12 +1,9 @@
 package com.example.assignment1;
 
 import javafx.application.Application;
-import javafx.event.EventHandler;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -20,6 +17,13 @@ public class HelloApplication extends Application {
     public void start(Stage stage) throws IOException {
         // grid of thumbnails
         GridPane root = new GridPane();
+
+        // Another layout
+        Pane pane = new Pane();
+        Stage stage1 = new Stage();
+        Scene scene1 = new Scene(pane);
+        stage1.setScene(scene1);
+        stage.show();
 
         // An array of paths
         String[] paths = {
@@ -62,8 +66,7 @@ public class HelloApplication extends Application {
             // to make image view respond to mouseclick
             imageview[i].setPickOnBounds(true);
 
-
-
+            imageview[i].setOnMouseClicked(event -> stage1.setScene(scene1));
         }
         // Gridpane properties rows and columns
         root.addRow(0,imageview[0],imageview[1],imageview[2]);
